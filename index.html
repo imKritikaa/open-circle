@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open Circle — Be a part of something open</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<!-- ============ SHARED SVG DEFS ============ -->
+<svg id="defs" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gTower" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdfb"/><stop offset=".55" stop-color="#efe4fa"/><stop offset="1" stop-color="#d9c9f2"/></linearGradient>
+    <linearGradient id="gRoof" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbdcea"/><stop offset="1" stop-color="#c6b1ee"/></linearGradient>
+    <linearGradient id="gStone" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff6ea"/><stop offset="1" stop-color="#e6cdbb"/></linearGradient>
+    <linearGradient id="gRock" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c7b3d6"/><stop offset=".6" stop-color="#8d7bb8"/><stop offset="1" stop-color="#6a5a9e"/></linearGradient>
+    <radialGradient id="gPortal" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff"/><stop offset=".42" stop-color="#fff3d2"/><stop offset=".76" stop-color="#ffd0e3"/><stop offset="1" stop-color="#cdbcf7"/></radialGradient>
+    <radialGradient id="gHalo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset=".5" stop-color="#ffe3ef" stop-opacity=".55"/><stop offset="1" stop-color="#ffd0e8" stop-opacity="0"/></radialGradient>
+    <linearGradient id="gRing" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8a3d"/><stop offset=".5" stop-color="#f0559b"/><stop offset="1" stop-color="#5b3fd6"/></linearGradient>
+    <filter id="blur10" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="10"/></filter>
+    <filter id="blur4" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3.5"/></filter>
+    <g id="towers"></g>
+    <g id="girlSit">
+      <rect x="-24" y="-46" width="17" height="27" rx="7" fill="#8b2f43"/>
+      <path d="M-9 -54 q-9 8 -7 34 h24 q5 -24 -4 -34z" fill="#7a4a3a"/>
+      <path d="M-12 -34 h6 v14 h-6z" fill="#6a3f31"/>
+      <circle cx="0" cy="-62" r="8.500" fill="#f1c9a8"/>
+      <path d="M-10 -63 q-3 -15 10 -15 q13 0 10 15 q-1 20 -3 30 q-4 -20 -17 -15z" fill="#2a1d24"/>
+      <path d="M-5 -22 l26 3 q5 1 5 6 l-2 8 h-7 l1 -5 -22 -3z" fill="#2e3c62"/>
+      <path d="M22 -12 l4 -1 l-1 13 h-6z" fill="#e9e0d4"/>
+    </g>
+    <g id="laptopSit">
+      <path d="M-9 -52 q9 -9 18 0 v5 h-18z" fill="#2b2233"/>
+      <circle cx="0" cy="-45" r="7" fill="#e8b795"/>
+      <path d="M-9 -38 h18 l3 26 h-24z" fill="#3a7f86"/>
+      <path d="M-18 -13 h34 q3 0 3 4 v9 h-8 v-4 h-24z" fill="#40446e"/>
+      <path d="M-30 -27 l16 -1 l3 13 l-19 1z" fill="#d9d4ee"/>
+      <path d="M-30 -14 l22 0 l0 3 l-22 1z" fill="#b6aedb"/>
+    </g>
+    <symbol id="logo" viewBox="0 0 48 48"><circle cx="22" cy="26" r="15" fill="none" stroke="url(#gRing)" stroke-width="7"/><path d="M39.500 5l1.700 3.600 3.600 1.700-3.600 1.700-1.700 3.600-1.700-3.600-3.600-1.700 3.600-1.700z" fill="#f0855b"/></symbol>
+  </defs>
+</svg>
+
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="glow" id="glow" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#/" aria-label="Open Circle — home"><svg viewBox="0 0 48 48"><use href="#logo"/></svg><span>OPEN<br>CIRCLE</span></a>
+    <nav class="links" id="links" aria-label="Main">
+      <a href="#/" data-route="home">Home</a>
+      <a href="#/about" data-route="about">About</a>
+      <a href="#/projects" data-route="projects">Projects</a>
+      <a href="#/events" data-route="events">Events</a>
+      <a href="#/community" data-route="community">Community</a>
+    </nav>
+    <div class="nav-r">
+      <button class="icon-btn" id="theme" aria-label="Switch between light and dark theme"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 010 16z" fill="currentColor"/></svg></button>
+      <button class="btn sm" data-join>Join Us <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <button class="icon-btn burger" id="burger" aria-label="Open menu" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================================================================= HOME -->
+<div data-page="home" data-title="Open Circle — Be a part of something open">
+  <section class="hero">
+    <span class="orb" style="--s:74px;left:38%;top:14%;--d:10s"></span>
+    <span class="orb" style="--s:110px;right:6%;top:8%;--d:12s"></span>
+    <span class="orb" style="--s:56px;left:-14px;top:40%;--d:8s"></span>
+    <span class="orb" style="--s:44px;right:2%;top:52%;--d:9s"></span>
+    <span class="orb" style="--s:90px;left:2%;bottom:14%;--d:11s"></span>
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker">Open Source <b>✦</b> Tech <b>✦</b> Community</div>
+        <h1 aria-label="Be a part of something open.">
+          <span class="w" style="--i:0">Be</span> <span class="w" style="--i:1">a</span> <span class="w" style="--i:2">part</span> <span class="w" style="--i:3">of</span>
+          <span class="w" style="--i:4">something</span>
+          <span class="w open" style="--i:6">open<i>.</i></span>
+        </h1>
+        <p class="tag">Learn. Build. Contribute. Grow.</p>
+        <p class="body">Join Open Circle — MAIT’s open source society. No prior experience needed. Just curiosity.</p>
+        <div class="cta">
+          <a class="btn" href="#/about">Explore Open Circle <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="play" href="#/about"><i><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.500v13l11-6.500z"/></svg></i>Our Story</a>
+        </div>
+      </div>
+      <div class="art-wrap">
+        <svg class="art" id="art" viewBox="0 0 600 660" role="img" aria-label="Illustration: students gathered on a floating island in front of a glowing portal marked Open Circle">
+          <circle class="pulse" cx="300" cy="320" r="235" fill="url(#gHalo)"/>
+          <g id="sparks"></g>
+          <g filter="url(#blur10)" opacity=".85">
+            <ellipse cx="70" cy="330" rx="90" ry="26" fill="#fff"/><ellipse cx="530" cy="300" rx="80" ry="24" fill="#ffe1ee"/>
+            <ellipse cx="120" cy="120" rx="70" ry="20" fill="#fff" opacity=".7"/><ellipse cx="520" cy="110" rx="80" ry="22" fill="#fff" opacity=".7"/>
+          </g>
+          <!-- small floating island -->
+          <g class="isle2">
+            <g transform="translate(24 176)">
+              <path d="M0 48 q32 -16 68 -16 q42 0 74 16 q-12 32 -42 46 q-10 22 -26 38 q-14 -16 -24 -38 q-32 -14 -50 -46z" fill="url(#gRock)"/>
+              <ellipse cx="71" cy="46" rx="72" ry="13" fill="#a9d79c"/>
+              <rect x="58" y="-2" width="17" height="48" fill="url(#gTower)"/>
+              <polygon points="53,2 80,2 66.500,-46" fill="url(#gRoof)"/>
+              <rect x="30" y="20" width="14" height="26" fill="url(#gTower)"/><polygon points="26,23 48,23 37,-6" fill="url(#gRoof)"/>
+              <circle cx="104" cy="34" r="9" fill="#5fa86b"/><circle cx="112" cy="38" r="7" fill="#7cc07a"/><circle cx="96" cy="38" r="6" fill="#4f9a63"/>
+            </g>
+          </g>
+          <!-- main island -->
+          <g class="isle">
+            <path d="M84 430 Q128 500 190 532 Q244 582 300 646 Q356 582 410 532 Q472 500 516 430 Q300 474 84 430Z" fill="url(#gRock)"/>
+            <path d="M150 470 Q200 500 236 552 M450 470 Q400 500 364 552 M300 500 V600" stroke="#fff" stroke-opacity=".18" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <use href="#towers"/>
+            <!-- platform -->
+            <path d="M78 394 H522 L510 432 Q300 462 90 432Z" fill="url(#gStone)"/>
+            <path d="M90 432 Q300 462 510 432 L506 442 Q300 474 94 442Z" fill="#d9bfae"/>
+            <line x1="96" y1="391" x2="504" y2="391" stroke="#f3e5d8" stroke-width="13" stroke-dasharray="4 8"/>
+            <line x1="90" y1="398" x2="510" y2="398" stroke="#fff8ef" stroke-width="4" stroke-linecap="round"/>
+            <g id="foliageBack"></g>
+            <!-- portal -->
+            <circle cx="300" cy="320" r="118" fill="url(#gPortal)"/>
+            <g class="pulse" opacity=".9"><circle cx="300" cy="320" r="100" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="3"/></g>
+            <g id="rays" stroke="#fff" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"></g>
+            <circle cx="300" cy="320" r="127" fill="none" stroke="url(#gStone)" stroke-width="24"/>
+            <circle cx="300" cy="320" r="139" fill="none" stroke="#c9ae9c" stroke-opacity=".45" stroke-width="2"/>
+            <circle cx="300" cy="320" r="115" fill="none" stroke="#c9ae9c" stroke-opacity=".5" stroke-width="2"/>
+            <g id="ringBlocks" stroke="#d6bba9" stroke-width="1.6" stroke-opacity=".8"></g>
+            <g text-anchor="middle" fill="#2a2178" font-family="DM Sans,system-ui,sans-serif">
+              <path d="M300 262l3.600 8.400 8.400 3.600-8.400 3.600-3.600 8.400-3.600-8.400-8.400-3.600 8.400-3.600z"/>
+              <text x="300" y="316" font-size="21" font-weight="500" letter-spacing="6">OPEN</text>
+              <text x="300" y="342" font-size="21" font-weight="500" letter-spacing="6">CIRCLE</text>
+            </g>
+            <g id="ivy"></g>
+            <g id="stairs"></g>
+            <g id="people"></g>
+            <use href="#girlSit" transform="translate(150 394)"/>
+            <use href="#laptopSit" transform="translate(452 394)"/>
+            <g id="foliageFront"></g>
+            <g id="vines"></g>
+          </g>
+          <!-- front clouds -->
+          <g class="isle2" filter="url(#blur10)">
+            <ellipse cx="70" cy="636" rx="120" ry="34" fill="#fff" opacity=".95"/><ellipse cx="210" cy="652" rx="150" ry="36" fill="#ffe4f0" opacity=".9"/>
+            <ellipse cx="380" cy="648" rx="160" ry="38" fill="#fff" opacity=".95"/><ellipse cx="540" cy="630" rx="120" ry="34" fill="#ffd9ea" opacity=".9"/>
+            <ellipse cx="300" cy="664" rx="220" ry="30" fill="#fff"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="scroll" aria-hidden="true"><i></i>Scroll to explore</div>
+    <svg class="mist" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70 C 220 10, 430 110, 720 62 S 1180 0, 1440 58 V120 H0Z"/></svg>
+  </section>
+
+  <section class="sec" id="about-home">
+    <span class="orb" style="--s:60px;left:-20px;top:120px;--d:10s"></span>
+    <div class="wrap about">
+      <div>
+        <div class="kicker rv">About us <b>✦</b></div>
+        <h2 class="title rv">What is Open Circle?</h2>
+        <p class="lead rv">Open Circle is MAIT’s open source society — a community of builders, learners and dreamers. We explore technology, work on real projects, and create opportunities for everyone to grow, contribute and make an impact.</p>
+        <span class="script rv">Different people. Same curiosity.</span><br>
+        <a class="btn solid rv" href="#/about">Our Story <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="four" data-render="pillars"></div>
+    </div>
+  </section>
+
+  <section class="dark" id="featured">
+    <div class="wrap feat">
+      <div>
+        <div class="kicker rv">Featured projects</div>
+        <h2 class="title rv">Ideas to <span class="grad">Impact</span></h2>
+        <p class="lead">From beginner-friendly projects to advanced builds, explore what our members are working on.</p>
+        <a class="btn ghost" href="#/projects">View All Projects <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="pcards" data-render="featured"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="orb" style="--s:70px;left:-24px;bottom:60px;--d:9s"></span>
+    <div class="wrap events">
+      <div>
+        <div class="kicker rv">Upcoming events</div>
+        <h2 class="title rv">Learn. Build. <span class="grad">Connect.</span></h2>
+        <p class="lead">Workshops, hackathons, talks and more — be a part of what’s next.</p>
+        <a class="btn solid" href="#/events">View All Events <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="ev-right">
+        <div class="tls" data-render="timeline"></div>
+        <svg class="mini" viewBox="0 0 320 300" aria-hidden="true">
+          <g class="mini-isle">
+            <path d="M30 236 Q64 262 104 274 Q142 292 160 300 Q178 292 216 274 Q256 262 290 236 Q160 258 30 236Z" fill="url(#gRock)"/>
+            <use href="#towers" transform="translate(-8 -8) scale(.56)"/>
+            <path d="M28 212h264l-8 22q-124 18 -248 0z" fill="url(#gStone)"/>
+            <line x1="40" y1="209" x2="280" y2="209" stroke="#f3e5d8" stroke-width="9" stroke-dasharray="3 6"/>
+            <use href="#girlSit" transform="translate(84 214) scale(.85)"/>
+            <use href="#laptopSit" transform="translate(236 214) scale(.85)"/>
+            <g id="miniPeople"></g>
+            <g id="miniFoliage"></g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark" id="community-home">
+    <div class="wrap comm">
+      <div>
+        <div class="kicker">Our community</div>
+        <h2>Built by People,<br>Powered by Open Source</h2>
+        <p class="lead">Students, creators, problem-solvers — we’re a community that builds together.</p>
+        <a class="btn ghost sm" href="#/community">Join Our Community <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div>
+        <div class="avatars" data-render="avatars"></div>
+        <div class="stats">
+          <div class="stat"><b>100+</b><span>Members</span></div>
+          <div class="stat"><b>20+</b><span>Projects</span></div>
+          <div class="stat"><b>∞</b><span>Possibilities</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="wall-t">OUR TECH STACK</div>
+        <div class="wall" data-render="wall"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================================================================= ABOUT -->
+<div data-page="about" data-title="About — Open Circle" hidden>
+  <section class="phead">
+    <span class="orb" style="--s:90px;--d:11s"></span>
+    <div class="wrap">
+      <div class="kicker">About us <b>✦</b></div>
+      <h1>Different people. Same <span class="grad">curiosity.</span></h1>
+      <p class="lead">Open Circle is MAIT’s open source society. We’re students who like to learn in public, build real things, and share what we know.</p>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap two">
+      <div>
+        <h2 class="title rv">Why open source?</h2>
+        <span class="script rv">Anyone can join the circle.</span>
+      </div>
+      <div class="prose rv">
+        <p>Open source is software that anyone can read, use, change and improve. It’s also one of the friendliest ways to learn: real code, real reviews, real people who want you to get better.</p>
+        <p>We run workshops for first-timers, build projects together, and help members make their first contributions to projects around the world. You don’t need to be an expert. You need to be curious.</p>
+        <p>Everything we make is shared in the open, so the next person can start where we finished.</p>
+      </div>
+    </div>
+    <div class="wrap" style="margin-top:70px">
+      <div class="kicker rv">What we stand for</div>
+      <h2 class="title rv">Four ideas we come back to</h2>
+      <div class="pillars2" data-render="pillars2" style="margin-top:28px"></div>
+    </div>
+    <div class="wrap" style="margin-top:80px">
+      <div class="kicker rv">What we do</div>
+      <h2 class="title rv">Ways to get involved</h2>
+      <div class="do">
+        <div class="card"><h3>Workshops</h3><p>Hands-on sessions on Git, Linux, web development, AI tools and more. Bring a laptop and a question.</p></div>
+        <div class="card"><h3>Project teams</h3><p>Small teams that build and maintain open projects. Pick a role that fits: code, design, docs or testing.</p></div>
+        <div class="card"><h3>Mentorship</h3><p>Pair up with a senior member who has shipped before, and get review on your first pull requests.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="dark">
+    <div class="wrap">
+      <div class="kicker">Your path</div>
+      <h2 class="title" style="max-width:18ch">From first hello to <span class="grad">first release</span></h2>
+      <div class="path" data-render="path"></div>
+    </div>
+  </section>
+  <section class="sec band">
+    <div class="wrap center">
+      <h2 class="rv">There’s a seat in the circle for you.</h2>
+      <p class="lead">Say hello, ask a question, or just watch a session first. Everyone starts somewhere.</p>
+      <button class="btn" data-join="About page">Join Open Circle <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+  </section>
+</div>
+
+<!-- ================================================================= PROJECTS -->
+<div data-page="projects" data-title="Projects — Open Circle" hidden>
+  <section class="phead">
+    <span class="orb" style="--s:100px;--d:10s"></span>
+    <div class="wrap">
+      <div class="kicker">Projects <b>✦</b></div>
+      <h1>Ideas to <span class="grad">Impact</span></h1>
+      <p class="lead">From beginner-friendly projects to advanced builds. Every project here is open, and every one has room for a new contributor.</p>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap">
+      <div class="toolbar">
+        <label class="search"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.500"/><path d="M16 16l4 4"/></svg><input id="psearch" type="search" placeholder="Search projects" aria-label="Search projects"></label>
+        <div class="chips" id="pchips" role="group" aria-label="Filter projects"></div>
+      </div>
+      <div class="pgrid" id="pgrid" aria-live="polite"></div>
+    </div>
+  </section>
+  <section class="dark">
+    <div class="wrap center band" style="padding:20px 28px">
+      <h2 style="max-width:18ch;font-size:clamp(30px,4vw,46px);margin-bottom:16px">Have an idea? Bring it to the circle.</h2>
+      <p class="lead" style="margin-bottom:28px">Tell us what you’d like to build. We’ll help you find teammates and a first small step.</p>
+      <button class="btn" data-join="Project idea">Pitch a project <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+  </section>
+</div>
+
+<!-- ================================================================= EVENTS -->
+<div data-page="events" data-title="Events — Open Circle" hidden>
+  <section class="phead">
+    <span class="orb" style="--s:84px;--d:9s"></span>
+    <div class="wrap">
+      <div class="kicker">Events <b>✦</b></div>
+      <h1>Learn. Build. <span class="grad">Connect.</span></h1>
+      <p class="lead">Workshops, sprints, talks and meetups. Come to one, or come to all of them.</p>
+    </div>
+  </section>
+  <section class="sec" style="min-height:520px">
+    <div class="wrap">
+      <div class="tabs" role="tablist" aria-label="Event timing">
+        <button role="tab" id="tab-up" aria-selected="true">Upcoming</button>
+        <button role="tab" id="tab-past" aria-selected="false">Past</button>
+      </div>
+      <div class="evgrid">
+        <div class="evlist" id="evlist"></div>
+        <aside class="evside"><div id="evart"></div><div class="card"><h3>Never miss one</h3><p>Join the community and we’ll tell you about the next session.</p><button class="btn sm solid" data-join="Event updates">Get updates</button></div></aside>
+      </div>
+    </div>
+  </section>
+  <section class="dark">
+    <div class="wrap center band" style="padding:20px 28px">
+      <h2 style="max-width:18ch;font-size:clamp(30px,4vw,46px);margin-bottom:16px">Want to host a session?</h2>
+      <p class="lead" style="margin-bottom:28px">If you’ve learned something you can teach in an hour, we’d love to have you speak.</p>
+      <button class="btn" data-join="Host a session">Propose a session <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+  </section>
+</div>
+
+<!-- ================================================================= COMMUNITY -->
+<div data-page="community" data-title="Community — Open Circle" hidden>
+  <section class="phead">
+    <span class="orb" style="--s:96px;--d:12s"></span>
+    <div class="wrap">
+      <div class="kicker">Community <b>✦</b></div>
+      <h1>Built by people, powered by <span class="grad">open source</span></h1>
+      <p class="lead">Students, creators and problem-solvers who build together. No prior experience needed.</p>
+      <div class="bigstats">
+        <div><b>100+</b><span>Members</span></div>
+        <div><b>20+</b><span>Projects</span></div>
+        <div><b>∞</b><span>Possibilities</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap">
+      <div class="kicker rv">How to join</div>
+      <h2 class="title rv">Three steps to your first contribution</h2>
+      <div class="path" data-render="joinpath"></div>
+      <div style="margin-top:36px"><button class="btn" data-join="Community page">Join Open Circle <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+    </div>
+    <div class="wrap" style="margin-top:90px">
+      <div class="kicker rv">The people</div>
+      <h2 class="title rv">Who keeps the circle turning</h2>
+      <div class="team" data-render="team"></div>
+    </div>
+  </section>
+  <section class="dark">
+    <div class="wrap comm" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr)">
+      <div>
+        <div class="kicker">Our tech stack</div>
+        <h2>Tools we use every day</h2>
+        <p class="lead">You’ll pick these up as you go. Hover a logo to see its name.</p>
+      </div>
+      <div style="border-left:1px solid rgba(255,255,255,.2)!important">
+        <div class="wall" data-render="wall"></div>
+      </div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap">
+      <div class="kicker rv">Questions</div>
+      <h2 class="title rv">Good to know before you join</h2>
+      <div class="faq" data-render="faq"></div>
+      <div class="card coc">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        <div><h3>Be kind, be curious</h3><p>Our spaces are for learning. We treat every question as a good question and every member with respect.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <svg class="ftop" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V30C1200 80 960 4 700 40S220 74 0 26Z"/></svg>
+  <span class="orb" style="--s:70px;left:60%;top:20px;--d:10s"></span>
+  <span class="orb" style="--s:100px;right:6%;bottom:50px;--d:12s"></span>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#/" aria-label="Open Circle — home"><svg viewBox="0 0 48 48"><use href="#logo"/></svg><span>OPEN<br>CIRCLE</span></a>
+        <small>Open Source <b>✦</b> Community <b>✦</b> A Better Tomorrow</small>
+      </div>
+      <div class="mid">
+        <span class="script">Be a part of something open. ✦</span>
+        <button class="btn" data-join>Join Open Circle <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="right">
+        <div class="socials" data-render="socials"></div>
+        <div><b style="font-weight:500">MAIT</b> &nbsp;|&nbsp; Rohini, Delhi</div>
+      </div>
+    </div>
+    <div class="foot-links">
+      <a href="#/">Home</a><a href="#/about">About</a><a href="#/projects">Projects</a><a href="#/events">Events</a><a href="#/community">Community</a>
+      <span style="color:var(--ink3)">© <span id="yr"></span> Open Circle</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ JOIN DIALOG ============ -->
+<dialog id="join" aria-labelledby="join-h">
+  <div class="dlg">
+    <button class="icon-btn x" id="join-x" aria-label="Close"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <h2 id="join-h">Join <span class="grad">Open Circle</span></h2>
+    <p class="lead" style="font-size:14.5px">Say hello in the places we hang out, or send us a note below.</p>
+    <div class="chan" data-render="channels"></div>
+    <form id="joinform">
+      <div class="field"><label for="jn">Your name</label><input id="jn" required autocomplete="name"></div>
+      <div class="field"><label for="je">Email</label><input id="je" type="email" required autocomplete="email"></div>
+      <div class="field"><label for="ji">What are you curious about?</label>
+        <select id="ji"><option>Learning the basics</option><option>Building projects</option><option>Making my first contribution</option><option>Speaking at an event</option><option>Something else</option></select></div>
+      <button class="btn" type="submit">Send note <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="note" id="jnote">This opens your email app with the note filled in.</p>
+    </form>
+  </div>
+</dialog>
+
+<script src="js/data.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/render.js"></script>
+<script src="js/art.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
