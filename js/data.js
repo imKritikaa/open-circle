@@ -6,7 +6,7 @@
 const SITE = {
   email: 'hello@example.com',                      // where the "Send note" form goes
   links: {                                         // replace # with your real links
-    github:'https://github.com/', discord:'#', linkedin:'https://www.linkedin.com/', instagram:'https://www.instagram.com/'
+    github:'https://github.com/imKritikaa/open-circle', discord:'#', linkedin:'https://www.linkedin.com/company/open-circlecst/', instagram:'https://www.instagram.com/opencircle.cst?stkn=ZnB1OGFiYnUzdjN6'
   }
 };
 
