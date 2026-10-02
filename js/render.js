@@ -10,6 +10,9 @@ function projectCard(p,dark){
     <h3>${esc(p.name)}</h3>
     <p>${esc(p.desc)}</p>
     <div class="tags">${p.tags.map(t=>`<span class="chip">${esc(t)}</span>`).join('')}</div>
+    <div class="maintainer">
+      Maintained by ${esc(p.maintainer)}
+    </div>
     ${dark?'':`<div style="display:flex;justify-content:space-between;align-items:center"><span class="lvl">${esc(p.level)}</span><a class="link" href="${esc(p.repo)}" target="_blank" rel="noopener">View on GitHub ${ic('ext')}</a></div>`}
   </article>`;
 }
