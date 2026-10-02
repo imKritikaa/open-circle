@@ -18,7 +18,7 @@ const PILLARS = [
 ];
 
 const PROJECTS = [
-  {name:'WasteWise', icon:'leaf', c:['#34c38f','#1f9d6b'], desc:'AI-powered waste scanner for a cleaner and greener tomorrow.', tags:['AI/ML','Mobile App'], cats:['AI','Mobile'], level:'Intermediate', repo:SITE_LINK('github')},
+  {name:'Unfold', icon:'leaf', c:['#34c38f','#1f9d6b'], desc:'A mindful companion for self-growth and everyday well-being.', tags:['Mental Wellness', 'Journaling'], cats:['Wellness'], level:'Intermediate', repo:SITE_LINK('github')},
   {name:'LegalMetro', icon:'shield', c:['#7b6cf6','#4d3fd1'], desc:'Compliance check for packaged commodities under Legal Metrology.', tags:['Web App','GovTech'], cats:['Web'], level:'Intermediate', repo:SITE_LINK('github')},
   {name:'BIS Assistant', icon:'chat', c:['#ff8a5c','#f0559b'], desc:'AI assistant for Indian Standards and BIS services for industry and consumers.', tags:['AI','LLM','RAG'], cats:['AI'], level:'Advanced', repo:SITE_LINK('github')},
   {name:'Commit Quest', icon:'git', c:['#f7a23b','#e8703f'], desc:'A gamified way to learn Git and GitHub through small, safe challenges.', tags:['Web App','Education'], cats:['Web'], level:'Beginner friendly', repo:SITE_LINK('github')},
