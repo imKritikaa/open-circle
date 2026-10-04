@@ -23,7 +23,7 @@ const PROJECTS = [
   {name:'BIS Assistant', icon:'chat', c:['#ff8a5c','#f0559b'], desc:'AI assistant for Indian Standards and BIS services for industry and consumers.', tags:['AI','LLM','RAG'], cats:['AI'], level:'Advanced', maintainer:'Vanshika Sharma', repo:'https://github.com/vanshika114/BIS-Assistant'},
   {name:'Library Management System', icon:'git', c:['#f7a23b','#e8703f'], desc:'A gamified way to learn Git and GitHub through small, safe challenges.', tags:['Web App','Education'], cats:['Web'], level:'Beginner friendly', maintainer:'Vanshika Sharma', repo:'https://github.com/vanshika114/LMS'},
   {name:'Campus Transit', icon:'bus', c:['#3ba7f7','#2f6fe0'], desc:'Live shuttle and bus timings for students, built on a simple open API.', tags:['Mobile App','Civic tech'], cats:['Mobile'], level:'Beginner friendly', maintainer:'Vanshika Sharma', repo:'https://github.com/vanshika114/Campus-Transit'},
-  {name:'ReadMe Forge', icon:'doc', c:['#9b7cf6','#6b4ce6'], desc:'A command-line tool that drafts a clear README from your project folder.', tags:['CLI','Developer tools'], cats:['Tools'], level:'Intermediate', maintainer:'Rishabh Jamdagni', repo:'https://github.com/rishabhjamdagni09-web/PramaanGov/tree/main'}
+  {name:'ReadMe Forge', icon:'doc', c:['#9b7cf6','#6b4ce6'], desc:'AI-powered platform for smarter access to government services and citizen support.', tags:['AI','GovTech','Web App'], cats:['Web'], level:'Intermediate', maintainer:'Rishabh Jamdagni', repo:'https://github.com/rishabhjamdagni09-web/PramaanGov/tree/main'}
 ];
 function SITE_LINK(k){return SITE.links[k]}
 
@@ -50,7 +50,7 @@ const JOIN_STEPS = [
 ];
 
 const TEAM = [
-  {n:'Aanya Verma', r:'President', c:['#ff8a3d','#f0559b']},
+  {n:'Vanshika Sharma', r:'President', c:['#ff8a3d','#f0559b']},
   {n:'Kabir Malhotra', r:'Tech Lead', c:['#6b4ce6','#3a2fb0']},
   {n:'Ishita Rao', r:'Events Lead', c:['#34c38f','#3ba7f7']},
   {n:'Rohan Mehta', r:'Design Lead', c:['#f0559b','#8b5cf6']}
