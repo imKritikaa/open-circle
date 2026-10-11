@@ -32,8 +32,8 @@ const EVENTS = [
   {d:'2026-09-12', t:'Workshop: Git & GitHub', s:'Version control made simple.', type:'Workshop', mode:'Campus', time:'11:00 AM'},
   {d:'2026-09-20', t:'Open Source Sprint', s:'Build. Collaborate. Contribute.', type:'Sprint', mode:'Hybrid', time:'10:00 AM'},
   {d:'2026-10-05', t:'Tech Talk', s:'Real stories. Real builders.', type:'Talk', mode:'Campus', time:'2:00 PM'},
-  {d:'2026-10-18', t:'Community Meetup', s:'Meet. Share. Grow.', type:'Meetup', mode:'Campus', time:'3:00 PM'},
-  {d:'2026-11-08', t:'Winter Hack Day', s:'A full day to ship something small and real.', type:'Hackathon', mode:'Campus', time:'9:30 AM'}
+  {d:'2026-10-09', t:'Community Meetup', s:'Meet. Share. Grow.', type:'Meetup', mode:'Campus', time:'3:00 PM'},
+  {d:'2026-11-03', t:'Winter Hack Day', s:'A full day to ship something small and real.', type:'Hackathon', mode:'Campus', time:'9:30 AM'}
 ];
 
 const PATH = [
@@ -50,10 +50,16 @@ const JOIN_STEPS = [
 ];
 
 const TEAM = [
-  {n:'Vanshika Sharma', r:'President', c:['#ff8a3d','#f0559b']},
-  {n:'Kabir Malhotra', r:'Tech Lead', c:['#6b4ce6','#3a2fb0']},
-  {n:'Ishita Rao', r:'Events Lead', c:['#34c38f','#3ba7f7']},
-  {n:'Rohan Mehta', r:'Design Lead', c:['#f0559b','#8b5cf6']}
+  {n:'Vanshika Sharma', r:'President', c:['#ff8a3d', '#f0559b']},
+{n:'Lavanya', r:'Vice President', c:['#6b4ce6', '#3a2fb0']},
+{n:'Piyush', r:'Secretary', c:['#34c38f', '#3ba7f7']},
+{n:'Kritika', r:'Tech Head', c:['#f0559b', '#8b5cf6']},
+{n:'Agrima', r:'Tech Co-Head', c:['#3ba7f7', '#6b4ce6']},
+{n:'Dhairya', r:'Creative Head', c:['#ff8a3d', '#f0559b']},
+{n:'Himank', r:'Creative Co-Head', c:['#34c38f', '#3ba7f7']},
+{n:'Kshitiz', r:'Drive Head', c:['#6b4ce6', '#8b5cf6']},
+{n:'Kailash', r:'Event Co-Head', c:['#f0559b', '#ff8a3d']},
+{n:'Sunny', r:'Event Head', c:['#3ba7f7', '#34c38f']}
 ];
 
 const FAQ = [
