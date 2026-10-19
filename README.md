@@ -61,3 +61,5 @@ Join buttons or the form handler at the bottom of `js/main.js`.
 3. After a minute the site is live at `https://<your-username>.github.io/<repo-name>/`.
 
 Netlify and Vercel also work: drag the folder onto their dashboard.
+
+Deployment test
