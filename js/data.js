@@ -19,7 +19,7 @@ const PILLARS = [
 
 const PROJECTS = [
   {name:'Unfold', icon:'leaf', c:['#34c38f','#1f9d6b'], desc:'A mindful companion for self-growth and everyday well-being.', tags:['Mental Wellness', 'Journaling'], cats:['Wellness'], level:'Intermediate', maintainer:'Vanshika Sharma', repo:'https://github.com/vanshika114/unfolddd'},
-  {name:'Secure Auth', icon:'shield', c:['#7b6cf6','#4d3fd1'], desc:'A full-stack authentication system with secure login, JWT, OTP verification, and password recovery.', tags:['Web App','GovTech'], cats:['Web'], level:'Intermediate', maintainer:'Anhinav Dixit', repo:'https://github.com/Abhinavjs903/Secure_auth'},
+  {name:'Secure Auth', icon:'shield', c:['#7b6cf6','#4d3fd1'], desc:'A full-stack authentication system with secure login, JWT, OTP verification, and password recovery.', tags:['Web App','GovTech'], cats:['Web'], level:'Intermediate', maintainer:'Abhinav Dixit', repo:'https://github.com/Abhinavjs903/Secure_auth'},
   {name:'Library Management System', icon:'git', c:['#f7a23b','#e8703f'], desc:'A gamified way to learn Git and GitHub through small, safe challenges.', tags:['Web App','Education'], cats:['Web'], level:'Beginner friendly', maintainer:'Vanshika Sharma', repo:'https://github.com/vanshika114/LMS'},
   {name:'ReadMe Forge', icon:'doc', c:['#9b7cf6','#6b4ce6'], desc:'AI-powered platform for smarter access to government services and citizen support.', tags:['AI','GovTech','Web App'], cats:['Web'], level:'Intermediate', maintainer:'Rishabh Jamdagni', repo:'https://github.com/rishabhjamdagni09-web/PramaanGov/tree/main'},
   {name:'OpenCampus OS', icon:'git', c:['#3ba7f7','#2f6fe0'], desc:'An open-source operating system designed to support college students.', tags:['Open Source','Education','Web App'], cats:['Web'], level:'Intermediate', maintainer:'Hriday Arora', repo:'https://github.com/The-Tech-Guy005/OpenCampus-OS'},
@@ -49,7 +49,7 @@ const EVENTS = [
   {d:'2026-09-20', t:'Open Source Sprint', s:'Build. Collaborate. Contribute.', type:'Sprint', mode:'Hybrid', time:'10:00 AM'},
   {d:'2026-10-05', t:'Tech Talk', s:'Real stories. Real builders.', type:'Talk', mode:'Campus', time:'2:00 PM'},
   {d:'2026-10-09', t:'Community Meetup', s:'Meet. Share. Grow.', type:'Meetup', mode:'Campus', time:'3:00 PM'},
-  {d:'2026-11-03', t:'Winter Hack Day', s:'A full day to ship something small and real.', type:'Hackathon', mode:'Campus', time:'9:30 AM'}
+  {d:'2026-11-03', t:'HACK THE CIRCLE', s:'A full day to ship something small and real.', type:'Hackathon', mode:'Campus', time:'9:30 AM'}
 ];
 
 const PATH = [
