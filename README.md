@@ -3,7 +3,7 @@
 A multi-page website (Home, About, Projects, Events, Community) in plain HTML, CSS and JavaScript.
 No build step, no npm, no framework.
 
-Live Demo: open-circle-sigma.vercel.app
+Live Demo: https://open-circle-five.vercel.app/
 
 ## Folder structure
 
