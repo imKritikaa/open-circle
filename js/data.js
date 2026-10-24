@@ -39,6 +39,7 @@ const PROJECTS = [
   {name:'GeoSharp', icon:'globe', c:['#34c38f','#1f9d6b'], desc:'An AI-based satellite image super-resolution project that enhances Sentinel-2 imagery from 10-meter to 2.5-meter resolution using a 4× model.', tags:['AI','Satellite Imagery','Climate Tech'], cats:['AI'], level:'Advanced', maintainer:'Shreshtha', repo:'https://github.com/seervii/GeoSharp'},
   {name:'Task Manager API', icon:'git', c:['#3ba7f7','#2f6fe0'], desc:'A REST API for managing projects and tasks, with user signup, login, JWT-based authentication, and endpoints to create, view, update, and delete records.', tags:['Backend','REST API','Authentication'], cats:['Web'], level:'Intermediate', maintainer:'Shreshtha', repo:'https://github.com/seervii/task-manager-api'},
   {name:'Task Manager Frontend', icon:'git', c:['#7b6cf6','#4d3fd1'], desc:'A React frontend for managing projects and tasks with login, project creation, task management, and integration with the Task Manager API.', tags:['React','Frontend','Task Management'], cats:['Web'], level:'Beginner friendly', maintainer:'Shreshtha', repo:'https://github.com/seervii/task-manager-frontend'},
+  {name:'Sarthi', icon:'globe', c:['#34c38f','#1f9d6b'], desc:'An open-source project developed by Naman Gupta.', tags:['Open Source','Web'], cats:['Web'], level:'Beginner friendly', maintainer:'Naman Gupta', repo:'https://github.com/namangupta17-web/sarthi'},
  
 ];
 function SITE_LINK(k){return SITE.links[k]}
