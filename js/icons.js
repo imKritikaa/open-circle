@@ -24,8 +24,10 @@ const ICONS = {
   chev:'<path d="M9 6l6 6-6 6"/>',
   clock:'<circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/>',
   pin:'<path d="M12 21s6-5.500 6-11a6 6 0 10-12 0c0 5.500 6 11 6 11z"/><circle cx="12" cy="10" r="2"/>',
-  plus:'<path d="M12 5v14M5 12h14"/>'
+  plus:'<path d="M12 5v14M5 12h14"/>',
+  linux:'<ellipse cx="12" cy="15" rx="7.2" ry="8" fill="#24242b" stroke="none"/><circle cx="12" cy="6.5" r="4.5" fill="#24242b" stroke="none"/><ellipse cx="12" cy="15.5" rx="4.2" ry="6" fill="#f4f0e6" stroke="none"/><circle cx="10.5" cy="5.8" r="1" fill="#fff" stroke="none"/><circle cx="13.5" cy="5.8" r="1" fill="#fff" stroke="none"/><path d="M10.5 7.5 12 9l1.5-1.5z" fill="#f5a623" stroke="none"/><ellipse cx="9" cy="22" rx="2.7" ry="1.2" fill="#f5a623" stroke="none"/><ellipse cx="15" cy="22" rx="2.7" ry="1.2" fill="#f5a623" stroke="none"/>'
 };
+
 const ic = (n,cls='')=>`<svg class="ic ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n]}</svg>`;
 
 const SOCIAL = {

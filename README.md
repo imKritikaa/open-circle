@@ -1,4 +1,4 @@
-# Open Circle website
+# Open Circle Website
 
 A multi-page website (Home, About, Projects, Events, Community) in plain HTML, CSS and JavaScript.
 No build step, no npm, no framework.
