@@ -40,6 +40,7 @@ const PROJECTS = [
   {name:'Task Manager API', icon:'git', c:['#3ba7f7','#2f6fe0'], desc:'A REST API for managing projects and tasks, with user signup, login, JWT-based authentication, and endpoints to create, view, update, and delete records.', tags:['Backend','REST API','Authentication'], cats:['Web'], level:'Intermediate', maintainer:'Shreshtha', repo:'https://github.com/seervii/task-manager-api'},
   {name:'Task Manager Frontend', icon:'git', c:['#7b6cf6','#4d3fd1'], desc:'A React frontend for managing projects and tasks with login, project creation, task management, and integration with the Task Manager API.', tags:['React','Frontend','Task Management'], cats:['Web'], level:'Beginner friendly', maintainer:'Shreshtha', repo:'https://github.com/seervii/task-manager-frontend'},
   {name:'Sarthi', icon:'globe', c:['#34c38f','#1f9d6b'], desc:'An open-source project developed by Naman Gupta.', tags:['Open Source','Web'], cats:['Web'], level:'Beginner friendly', maintainer:'Naman Gupta', repo:'https://github.com/namangupta17-web/sarthi'},
+  {name:'MAIT Chat Bot', icon:'git', c:['#7b6cf6','#4d3fd1'], desc:'A chatbot project designed to help MAIT students access information and get answers to their queries.', tags:['Chatbot','AI','Web Development'], cats:['Web'], level:'Beginner friendly', maintainer:'Sakshi', repo:'https://github.com/Sakshi05131/MAIT-CHAT-BOT'},
  
 ];
 function SITE_LINK(k){return SITE.links[k]}
